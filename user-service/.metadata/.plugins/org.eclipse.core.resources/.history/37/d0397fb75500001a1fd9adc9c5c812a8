@@ -1,0 +1,35 @@
+package springBootApp;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+
+public class CurrencyService {
+	@Autowired
+	Currency currency;// = new Currency();
+
+	public Map<String,Integer> getServiceCurrency() {
+		return currency.getCurrency();		
+	}
+	public Map<String,Integer> getMatchCurrency(String name)
+	{
+		Map<String,Integer> map = new HashMap<String,Integer>();
+		for(Entry<String,Integer> entry : currency.map.entrySet())
+		{
+			
+			if(entry.getKey().equals(name))
+			{				
+				map.put(entry.getKey(),entry.getValue());
+			}
+		}
+		return map;
+	}
+	public ResponseEntity<Currency> createCurrency(Currency myCurrency) {
+		this.currency.map.putAll(myCurrency.map);
+		return null;
+	}
+
+}

@@ -1,0 +1,6 @@
+user\service\UserList.class
+user\service\User.class
+user\service\UserService.class
+user\service\SpringBootMainClass.class
+user\service\UserConfiguration.class
+user\service\UserController.class

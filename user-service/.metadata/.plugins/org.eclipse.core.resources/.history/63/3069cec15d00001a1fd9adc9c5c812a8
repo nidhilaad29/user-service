@@ -1,0 +1,20 @@
+package springBootApp;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class CurrncyConfiguration {
+
+	@Bean
+	public Currency getContextCurrency()
+	{
+		return new Currency();
+	}
+	
+	@Bean 
+	public CurrencyService getCurrencyService()
+	{
+		return new CurrencyService();
+	}
+}

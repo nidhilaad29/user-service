@@ -1,0 +1,30 @@
+package springBootApp;
+
+import java.util.Map;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
+import junit.framework.Assert;
+
+@EnableConfigurationProperties
+public class CurrencyServiceTest {
+	
+	CurrencyService service = new CurrencyService();
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void getCurrencyTest_match()
+	{
+		Map<String,Integer> map =service.getMatchCurrency("Rupees");
+		Assert.assertEquals(false, map.keySet().isEmpty());
+	}
+	
+	@Test
+	public void getCurrencyTest_nomatch()
+	{
+		Map<String,Integer> map =service.getMatchCurrency("Noone");
+		Assert.assertEquals(true, map.keySet().isEmpty());
+	}
+}
