@@ -14,7 +14,7 @@ public class UserController {
 	@RequestMapping(path= "/user/{id}")
 	public ResponseEntity<User> getUser(@PathVariable int id)
 	{
-		System.out.println("Call Reached to controller.");
+		System.out.println("Call Reached to test controller.");
 		return service.getUser(id);
 	}
 	
